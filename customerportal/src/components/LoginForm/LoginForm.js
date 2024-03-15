@@ -20,21 +20,13 @@ const validationSchema=yup.object({
 
 
 
-const LoginForm = () => {
+const LoginForm = ({registerStatus}) => {
     const [value, setNewValue] = useState(false);
     const [submitValue, setSubmitValue] = useState(false);
-/*
-    function handleChange(event) {
-        let value = true;
-        setNewValue(value);
-        change(value);
+    function handleChange(){
+        let value=true;
+        registerStatus(value);
     }
-    function handleSubmit() {
-        let value = true;
-        setSubmitValue(value);
-        submit(value);
-    }
-    */
 
       //formik object
 
@@ -48,7 +40,7 @@ const LoginForm = () => {
             validationSchema:validationSchema,
             onSubmit:(values)=>{
                 alert(JSON.stringify(values))
-                handleSubmit()
+               // handleSubmit()
             }
 
       })

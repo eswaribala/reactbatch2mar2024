@@ -13,16 +13,12 @@ function App() {
 //initializing state
     const[currentTime,setCurrentTime]=
         useState(new Date())
-  //  const[isRegister, setIsRegister]=useState(false);
-   // const[isSubmit, setIsSubmit]=useState(false);
-   /* function handleRegister(newValue) {
-        setIsRegister(newValue);
+   const[isRegister,setIsRegister]=useState(false);
+
+    function handleChange(newValue){
+        setIsRegister(newValue)
     }
 
-    function handleSubmit(newValue) {
-        setIsSubmit(newValue);
-        alert(isSubmit)
-    }*/
 //updating state
     useEffect(() => {
         setInterval(()=>{
@@ -42,9 +38,9 @@ function App() {
 
           <div className="Form-header">
           <Banner/>
-         <LoginForm/>
+              {(!isRegister)?<LoginForm registerStatus={handleChange}/>:<Registration />}
           </div>
-    
+
       </section>
 
     </div>
