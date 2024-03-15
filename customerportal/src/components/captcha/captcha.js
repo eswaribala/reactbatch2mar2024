@@ -31,7 +31,7 @@ const Captcha = ({captchaStatus}) => {
     const drawCaptchaOnCanvas = (ctx, captcha) => {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-        const textColors = ['pink','green','black','red'];
+        const textColors = ['brown','green','black','red'];
         const letterSpace = 175 / captcha.length;
 
         for (let i = 0; i < captcha.length; i++) {
@@ -49,18 +49,19 @@ const Captcha = ({captchaStatus}) => {
                 100
             );
 
-            ctx.beginPath();
-            ctx.moveTo(20,50);
-            let k=10;
-            for(let i=0;i<10;i++) {
-                ctx.lineTo(310 + k, 10 +k);
-                k=k+5;
-            }
+            /*ctx.beginPath();
+            ctx.moveTo(20,30);
+            let k=5;
+            for(let i=0;i<5;i++) {
+                ctx.lineTo(280 + k, 60 -k);
+                ctx.closePath();
+                ctx.strokeStyle="violet";
+                ctx.lineWidth="12px";
+                ctx.stroke();
+                k=k+20;
+            }*/
 
-            ctx.closePath();
-            ctx.strokeStyle="black";
-            ctx.lineWidth="12px";
-            ctx.stroke();
+
 
         }
     };
@@ -72,9 +73,9 @@ const Captcha = ({captchaStatus}) => {
         drawCaptchaOnCanvas(ctx, newCaptcha);
     };
 
-    const handleUserInputChange = (e) => {
+    const handleUserInputChange =  (e) => {
         setUserText(e.target.value);
-        captchaStatus(captchaText,userText);
+         captchaStatus(captchaText,userText);
 
     };
 

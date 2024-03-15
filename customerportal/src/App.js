@@ -14,9 +14,13 @@ function App() {
     const[currentTime,setCurrentTime]=
         useState(new Date())
    const[isRegister,setIsRegister]=useState(false);
+   const[isSubmit,setIsSubmit]=useState(false);
 
     function handleChange(newValue){
         setIsRegister(newValue)
+    }
+    function handleSubmit(value){
+        setIsSubmit(value);
     }
 
 //updating state
@@ -35,12 +39,15 @@ function App() {
         <h4 className="timer">{currentTime.toLocaleTimeString()}</h4>
       </header>
       <section >
-
+          { (!isSubmit) &&(
           <div className="Form-header">
           <Banner/>
-              {(!isRegister)?<LoginForm registerStatus={handleChange}/>:<Registration />}
+              {(!isRegister)?<LoginForm registerStatus={handleChange} submitStatus={handleSubmit}/>:<Registration />}
           </div>
-
+          )}
+          <Routes>
+              <Route path="/dashboard" element={<Dashboard/>}></Route>
+          </Routes>
       </section>
 
     </div>

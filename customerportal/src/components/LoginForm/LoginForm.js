@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import './LoginForm.css';
 import * as yup from 'yup';
-import {Button, TextField} from "@mui/material";
+import {Button, InputAdornment, TextField} from "@mui/material";
 import {useFormik} from "formik";
 import LoginImagePath from '../../assets/login.jpg'
 import Registration from "../Registration/Registration";
 import Captcha from "../captcha/captcha";
+import {useNavigate} from "react-router-dom";
+import EmailIcon from '@mui/icons-material/Email';
+
 const validationSchema=yup.object({
       email:yup
           .string("Enter Email")
@@ -21,12 +24,13 @@ const validationSchema=yup.object({
 
 
 
-const LoginForm = ({registerStatus}) => {
+const LoginForm = ({registerStatus,submitStatus}) => {
     const [value, setNewValue] = useState(false);
     const [submitValue, setSubmitValue] = useState(false);
     const[captchaText,setCaptchaText]=useState('')
     const[userText,setUserText]=useState('')
-
+    const[isSubmit,setIsSubmit]=useState('false')
+    const navigate=useNavigate();
     function handleChange(){
         let value=true;
         registerStatus(value);
@@ -44,10 +48,12 @@ const LoginForm = ({registerStatus}) => {
             validationSchema:validationSchema,
             onSubmit:(values)=>{
                 alert(JSON.stringify(values))
-               // handleSubmit()
+
                alert(captchaText+","+userText)
                if(captchaText === userText){
                    alert("success");
+                   handleSubmit()
+                   navigate("/dashboard")
                }else{
                    alert("Not Matching..");
                }
@@ -57,7 +63,12 @@ const LoginForm = ({registerStatus}) => {
 
       })
 
-     function handleCaptchaChange(value1,value2){
+    function handleSubmit(){
+        setIsSubmit(true);
+        submitStatus(true);
+    }
+
+      function handleCaptchaChange(value1,value2){
         setCaptchaText(value1);
         setUserText(value2);
      }
@@ -67,9 +78,17 @@ const LoginForm = ({registerStatus}) => {
 
               <img src={LoginImagePath} className="Image"/>
               <form onSubmit={formik.handleSubmit}>
+
                   <TextField
                       id="email"
                       type="email"
+                      InputProps={{
+                          startAdornment: (
+                              <InputAdornment position="start">
+                                  <EmailIcon />
+                              </InputAdornment>
+                          ),
+                      }}
                       value={formik.values.email}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
@@ -80,6 +99,7 @@ const LoginForm = ({registerStatus}) => {
                       margin="dense">
 
                   </TextField>
+
                   <TextField id="password"
                              type="password"
                              value={formik.values.password}
