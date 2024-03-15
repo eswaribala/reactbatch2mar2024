@@ -24,6 +24,9 @@ const validationSchema=yup.object({
 const LoginForm = ({registerStatus}) => {
     const [value, setNewValue] = useState(false);
     const [submitValue, setSubmitValue] = useState(false);
+    const[captchaText,setCaptchaText]=useState('')
+    const[userText,setUserText]=useState('')
+
     function handleChange(){
         let value=true;
         registerStatus(value);
@@ -42,10 +45,22 @@ const LoginForm = ({registerStatus}) => {
             onSubmit:(values)=>{
                 alert(JSON.stringify(values))
                // handleSubmit()
+               alert(captchaText+","+userText)
+               if(captchaText === userText){
+                   alert("success");
+               }else{
+                   alert("Not Matching..");
+               }
+
+
             }
 
       })
 
+     function handleCaptchaChange(value1,value2){
+        setCaptchaText(value1);
+        setUserText(value2);
+     }
 
       return(
               <div>
@@ -78,7 +93,7 @@ const LoginForm = ({registerStatus}) => {
                                margin="dense">
 
                   </TextField>
-                  <Captcha/>
+                  <Captcha captchaStatus={handleCaptchaChange}/>
                   <Button variant="contained" type="submit" >Login to continue</Button>
 
               </form>

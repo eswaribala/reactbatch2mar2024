@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import './captcha.css';
 import {Button, TextField} from "@mui/material";
 
-const Captcha = () => {
+const Captcha = ({captchaStatus}) => {
     const[captchaText,setCaptchaText]=useState('');
     const[userText,setUserText]=useState('');
     const canvasRef = useRef(null);
@@ -74,7 +74,7 @@ const Captcha = () => {
 
     const handleUserInputChange = (e) => {
         setUserText(e.target.value);
-
+        captchaStatus(captchaText,userText);
 
     };
 
