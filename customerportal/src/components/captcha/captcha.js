@@ -30,10 +30,13 @@ const Captcha = () => {
 
     const drawCaptchaOnCanvas = (ctx, captcha) => {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        const textColors = ['green','red','black','brown'];
+
+        const textColors = ['pink','green','black','red'];
         const letterSpace = 175 / captcha.length;
+
         for (let i = 0; i < captcha.length; i++) {
             const xInitialSpace = 25;
+
             ctx.font = '32px Lucida Calligraphy';
             ctx.fillStyle = textColors[Math.floor(
                 Math.random() * 4)];
@@ -45,6 +48,20 @@ const Captcha = () => {
                 Math.floor(Math.random() * 16 + 25),
                 100
             );
+
+            ctx.beginPath();
+            ctx.moveTo(20,50);
+            let k=10;
+            for(let i=0;i<10;i++) {
+                ctx.lineTo(310 + k, 10 +k);
+                k=k+5;
+            }
+
+            ctx.closePath();
+            ctx.strokeStyle="black";
+            ctx.lineWidth="12px";
+            ctx.stroke();
+
         }
     };
 

@@ -5,6 +5,7 @@ import {Button, TextField} from "@mui/material";
 import {useFormik} from "formik";
 import LoginImagePath from '../../assets/login.jpg'
 import Registration from "../Registration/Registration";
+import Captcha from "../captcha/captcha";
 const validationSchema=yup.object({
       email:yup
           .string("Enter Email")
@@ -77,6 +78,7 @@ const LoginForm = ({registerStatus}) => {
                                margin="dense">
 
                   </TextField>
+                  <Captcha/>
                   <Button variant="contained" type="submit" >Login to continue</Button>
 
               </form>
