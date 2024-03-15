@@ -20,10 +20,10 @@ const validationSchema=yup.object({
 
 
 
-const LoginForm = ({ change, submit}) => {
+const LoginForm = () => {
     const [value, setNewValue] = useState(false);
     const [submitValue, setSubmitValue] = useState(false);
-
+/*
     function handleChange(event) {
         let value = true;
         setNewValue(value);
@@ -34,6 +34,8 @@ const LoginForm = ({ change, submit}) => {
         setSubmitValue(value);
         submit(value);
     }
+    */
+
       //formik object
 
 

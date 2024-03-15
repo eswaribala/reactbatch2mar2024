@@ -13,16 +13,16 @@ function App() {
 //initializing state
     const[currentTime,setCurrentTime]=
         useState(new Date())
-    const[isRegister, setIsRegister]=useState(false);
-    const[isSubmit, setIsSubmit]=useState(false);
-    function handleRegister(newValue) {
+  //  const[isRegister, setIsRegister]=useState(false);
+   // const[isSubmit, setIsSubmit]=useState(false);
+   /* function handleRegister(newValue) {
         setIsRegister(newValue);
     }
 
     function handleSubmit(newValue) {
         setIsSubmit(newValue);
         alert(isSubmit)
-    }
+    }*/
 //updating state
     useEffect(() => {
         setInterval(()=>{
@@ -39,12 +39,12 @@ function App() {
         <h4 className="timer">{currentTime.toLocaleTimeString()}</h4>
       </header>
       <section >
-          { !isSubmit && (
+
           <div className="Form-header">
           <Banner/>
-          {(!isRegister) ? <LoginForm change={handleRegister} submit={handleSubmit} /> : <Registration />}
+         <LoginForm/>
           </div>
-              )}
+    
       </section>
 
     </div>
