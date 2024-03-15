@@ -8,6 +8,9 @@
 
  p,a{
     font-size: medium;
+     color: darkred;
 }
-
+a{
+    text-decoration: none;
+}
 
