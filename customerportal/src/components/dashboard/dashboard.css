@@ -1,22 +1,22 @@
 .article{
     background-color: gold;
     color: black;
-    min-height: 10vh;
+    min-height: 5vh;
     display: flex;
     flex-direction: row;
-    align-content: normal;
+    align-content: center;
     justify-content: left;
     font-size: calc(2px + 2vmin);
    width:100%;
-    padding: 3%;
+    padding: 1%;
 }
 .Account{
-    width: 30%;
+    width: 20%;
 }
 .center{
     display:flex;
     flex-direction: row;
-    width: 70%;
+    width: 75%;
 }
 .Dashboard{
     display: flex;

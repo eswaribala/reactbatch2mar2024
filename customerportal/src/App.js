@@ -32,19 +32,23 @@ function App() {
 
   return (
     <div className="App">
-
+        { (!isSubmit) &&(
+      <div>
       <header className="App-header">
         <Logo/>
         <h1 className="multicolortext">Customer Portal</h1>
         <h4 className="timer">{currentTime.toLocaleTimeString()}</h4>
       </header>
       <section >
-          { (!isSubmit) &&(
+
           <div className="Form-header">
           <Banner/>
               {(!isRegister)?<LoginForm registerStatus={handleChange} submitStatus={handleSubmit}/>:<Registration />}
           </div>
+      </section>
+      </div>
           )}
+      <section>
           <Routes>
               <Route path="/dashboard" element={<Dashboard/>}></Route>
           </Routes>

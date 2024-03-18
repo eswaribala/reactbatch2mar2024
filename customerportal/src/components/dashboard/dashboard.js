@@ -13,15 +13,15 @@ const Dashboard = () => {
     return (
     <article className="article">
         <div className="Account">
-        <AccountCircleIcon  sx={{ fontSize: 72 }} className="AccountCircle"></AccountCircleIcon>
+        <AccountCircleIcon  sx={{ fontSize: 102 }} className="AccountCircle"></AccountCircleIcon>
         </div>
         <div className="center">
 
             <div>
-                <h4>Welcome {firstName} &nbsp;&nbsp;{lastName} </h4>
+                <h4>Welcome, {firstName} &nbsp;&nbsp;{lastName} </h4>
                 <div className="Dashboard">
                     <EmailIcon fontSize="small"></EmailIcon> <h4 className="AccountCircle">{email} </h4>
-                    <PhoneIcon fontSize="small"></PhoneIcon><h4>{phone} </h4>
+                    &nbsp;&nbsp;&nbsp;<PhoneIcon fontSize="small"></PhoneIcon><h4>{phone} </h4>
                 </div>
             </div>
 
