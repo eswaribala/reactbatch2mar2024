@@ -73,10 +73,11 @@ const Captcha = ({captchaStatus}) => {
         drawCaptchaOnCanvas(ctx, newCaptcha);
     };
 
+    useEffect(()=>{
+        captchaStatus(captchaText,userText);
+    },[captchaText,userText])
     const handleUserInputChange =  (e) => {
         setUserText(e.target.value);
-         captchaStatus(captchaText,userText);
-
     };
 
     return(

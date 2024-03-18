@@ -8,6 +8,7 @@ import Registration from "../Registration/Registration";
 import Captcha from "../captcha/captcha";
 import {useNavigate} from "react-router-dom";
 import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
 
 const validationSchema=yup.object({
       email:yup
@@ -102,6 +103,13 @@ const LoginForm = ({registerStatus,submitStatus}) => {
 
                   <TextField id="password"
                              type="password"
+                             InputProps={{
+                                 startAdornment: (
+                                     <InputAdornment position="start">
+                                         <LockIcon />
+                                     </InputAdornment>
+                                 ),
+                             }}
                              value={formik.values.password}
                              onChange={formik.handleChange}
                              onBlur={formik.handleBlur}
