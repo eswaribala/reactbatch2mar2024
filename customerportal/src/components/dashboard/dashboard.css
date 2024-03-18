@@ -1,1 +1,27 @@
-.Dashboard {}
+.article{
+    background-color: gold;
+    color: black;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-content: normal;
+    justify-content: left;
+    font-size: calc(2px + 2vmin);
+   width:100%;
+    padding: 3%;
+}
+.Account{
+    width: 30%;
+}
+.center{
+    display:flex;
+    flex-direction: row;
+    width: 70%;
+}
+.Dashboard{
+    display: flex;
+   align-items: center;
+
+
+}
+
