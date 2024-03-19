@@ -53,3 +53,20 @@
 .p-menuitem{
     background-color: black;
 }
+.card {
+    background: var(--surface-card);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.p-card{
+    background-color: bisque;
+    color:black;
+    display:flex;
+    flex-direction: row;
+}
+
+.p-card-subtitle{
+    background-color: gold;
+    color: darkred;
+}

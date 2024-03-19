@@ -61,6 +61,7 @@ const LoginForm = ({registerStatus,submitStatus}) => {
                         if((response.data !== '') && (response.data.constructor === Object)&&
                            (Object.keys((response.data).length>0)))
                            {
+                               sessionStorage.setItem("customerId", response.data.id);
                                sessionStorage.setItem("firstName", response.data.name.firstName);
                                sessionStorage.setItem("lastName", response.data.name.lastName);
                                sessionStorage.setItem("email", response.data.email);
