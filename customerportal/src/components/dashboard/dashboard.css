@@ -1,3 +1,21 @@
+.header{
+    background-color: black;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: calc(5px + 2vmin);
+    color: white;
+}
+.welcome{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
 .article{
     background-color: gold;
     color: black;
@@ -8,7 +26,7 @@
     justify-content: left;
     font-size: calc(2px + 2vmin);
    width:100%;
-    padding: 1%;
+    padding: 2%;
 }
 .Account{
     width: 20%;
@@ -18,6 +36,9 @@
     flex-direction: row;
     width: 75%;
 }
+.center h1{
+    font-size: x-large;
+}
 .Dashboard{
     display: flex;
    align-items: center;
@@ -25,3 +46,10 @@
 
 }
 
+.p-menubar{
+    background-color: black;
+}
+
+.p-menuitem{
+    background-color: black;
+}

@@ -11,7 +11,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import axios from 'axios'
 
-const RestAPIUrl="http://localhost:5075/api/v1/customers/"
+const RestAPIUrl="http://54.165.173.13:8085/api/v1/customers/"
 
 const validationSchema=yup.object({
       email:yup
@@ -33,7 +33,7 @@ const LoginForm = ({registerStatus,submitStatus}) => {
     const [submitValue, setSubmitValue] = useState(false);
     const[captchaText,setCaptchaText]=useState('')
     const[userText,setUserText]=useState('')
-    const[isSubmit,setIsSubmit]=useState('false')
+    const[isSubmit,setIsSubmit]=useState(false);
     const navigate=useNavigate();
     function handleChange(){
         let value=true;
@@ -57,13 +57,20 @@ const LoginForm = ({registerStatus,submitStatus}) => {
                    alert("success");
                    axios.get(RestAPIUrl+values.email+"/"+values.password).then(
                        response=>{
-                           alert(JSON.stringify(response.data));
-                           sessionStorage.setItem("firstName", response.data.name.firstName);
-                           sessionStorage.setItem("lastName",response.data.name.lastName);
-                           sessionStorage.setItem("email",response.data.email);
-                           sessionStorage.setItem("phone",response.data.phone);
-                           handleSubmit()
-                           navigate("/dashboard")
+                           //alert(JSON.stringify(response.data));
+                        if((response.data !== '') && (response.data.constructor === Object)&&
+                           (Object.keys((response.data).length>0)))
+                           {
+                               sessionStorage.setItem("firstName", response.data.name.firstName);
+                               sessionStorage.setItem("lastName", response.data.name.lastName);
+                               sessionStorage.setItem("email", response.data.email);
+                               sessionStorage.setItem("phone", response.data.phone);
+                               handleSubmit()
+                               sessionStorage.setItem("isSubmit",true);
+                               navigate("/dashboard")
+                           }else{
+                            navigate("/")
+                        }
                        }
                    )
 
