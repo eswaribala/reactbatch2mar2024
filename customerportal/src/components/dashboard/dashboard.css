@@ -80,10 +80,11 @@
 }
 
 .p-card-title{
+
     text-align: left;
     background-color: goldenrod;
     color: black;
-    width:10%;
+    width:20%;
 }
 
 .p-card-content{
