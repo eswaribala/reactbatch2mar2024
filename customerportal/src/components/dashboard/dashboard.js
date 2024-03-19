@@ -8,7 +8,9 @@ import {Menubar} from "primereact/menubar";
 import {items} from "../../models/Items";
 import Logo from "../Logo/Logo";
 import axios from "axios";
-import {Card} from "@mui/material";
+import {Card} from "primereact/card";
+import CardMembershipIcon from '@mui/icons-material/CardMembership';
+import {Button} from "@mui/material";
 const RestAPIUrl="http://54.165.173.13:8085/filter/";
 
 const Dashboard = () => {
@@ -70,11 +72,24 @@ const Dashboard = () => {
                            responseData.map(chit => {
                             return(
                                 <div className="card">
-                                <Card subTitle={chit.chitId}>
-                                    <p >{chit.chitValue}</p>
-                                    <p>{chit.totalDuration}</p>
-                                    <p>{chit.installmentAmount}</p>
-                                </Card>
+                                    <Card title={chit.chitId}   pt={{
+                                        body: { className: 'bg-primary border-round-lg' }
+                                    }}>
+
+                                        <div className="card-header">
+                                            <CardMembershipIcon sx={{fontSize: 48}}
+                                                                color="primary"></CardMembershipIcon>
+                                        <h4>Chit Value</h4>
+                                        <h4>Total Duration</h4>
+                                        <h4>Installment Amount</h4>
+                                         <Button  variant="contained" color="primary">Pay Now</Button>
+                                        </div>
+                                        <div className="card-header">
+                                            <h4 >{chit.chitValue}</h4>
+                                            <h4 >{chit.totalDuration}</h4>
+                                            <h4 >{chit.installmentAmount}</h4>
+                                        </div>
+                                    </Card>
                                 </div>)
                            })
 

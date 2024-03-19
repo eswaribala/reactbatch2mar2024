@@ -59,14 +59,37 @@
     border-radius: 10px;
     margin-bottom: 1rem;
 }
-.p-card{
+
+.card-header{
     background-color: bisque;
-    color:black;
-    display:flex;
+
+    display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    font-size: calc(2px + 2vmin);
+    color: white;
+    font-family: var(--font-family);
+    font-weight: normal;
+    background: var(--surface-ground);
+    color: var(--text-color);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.p-card-subtitle{
-    background-color: gold;
-    color: darkred;
+.p-card-title{
+    text-align: left;
+    background-color: goldenrod;
+    color: black;
+    width:10%;
+}
+
+.p-card-content{
+    text-align: left;
+    background-color: white;
+    color: goldenrod;
+    width:100%;
+    font-weight: bold;
 }
