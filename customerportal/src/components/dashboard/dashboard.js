@@ -121,7 +121,7 @@ const Dashboard = () => {
                 }
             }
         }
-        axios.post(Url+"/api/v1/ChitTransactions?id="+formik.values.chitId,data)
+        axios.post(Url+"api/v1/ChitTransactions?id="+formik.values.chitId,data)
             .then(response=>{
             console.log(JSON.stringify(response));
         })
