@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import './dashboarddialog.css';
 import {Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
@@ -27,14 +27,28 @@ const validationSchema=yup.object({
 
 
 })
+let openData;
 const Dashboarddialog = () => {
+
+
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClose = async() => {
+        setOpen(false);
+        openData=false
+        await sessionStorage.setItem("open",false);
+    }
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+
+    useEffect(() => {
+        let data = sessionStorage.getItem("open");
+        if(data === "true")
+            openData=true;
+        console.log(openData)
+
+    }, [open]);
+
     const formik=useFormik({
         initialValues:{
             "chitId":0,
@@ -79,7 +93,7 @@ const Dashboarddialog = () => {
             })
     }
     return(
-    <Dialog open={open}
+      <Dialog open={openData}
             onClose={handleClose}>
 
         <DialogTitle>Payment Information</DialogTitle>

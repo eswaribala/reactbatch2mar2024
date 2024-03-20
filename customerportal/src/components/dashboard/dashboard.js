@@ -47,10 +47,15 @@ const Dashboard = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
+    sessionStorage.setItem("open",false);
     const handleClickOpen = () => {
         setOpen(true);
+
     };
+
+    useEffect(() => {
+        sessionStorage.setItem("open",true);
+    }, [open]);
     useEffect(() => {
       console.log(response);
     }, [response]);
@@ -128,7 +133,10 @@ const Dashboard = () => {
                                            style={{ backgroundColor: '#2196F3',
                                                color: '#ffffff' }} />
                                    <Button label="Pay Now" severity="help"  onClick={handleClickOpen} />
-                                   <Dashboarddialog />
+                                   {
+                                       (open) &&(
+                                       <Dashboarddialog />)
+                                   }
                                </div>
                                <div className="card-header">
 
