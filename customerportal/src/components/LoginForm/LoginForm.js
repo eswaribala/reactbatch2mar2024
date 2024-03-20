@@ -10,9 +10,10 @@ import {useNavigate} from "react-router-dom";
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import axios from 'axios'
+import {Url} from "../../config/Configuration";
 
-const RestAPIUrl="http://54.165.173.13:8085/api/v1/customers/"
-
+//const RestAPIUrl="http://54.165.173.13:8085/api/v1/customers/"
+const RestAPIUrl=Url+"api/v1/customers/"
 const validationSchema=yup.object({
       email:yup
           .string("Enter Email")

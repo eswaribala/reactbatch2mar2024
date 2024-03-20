@@ -25,8 +25,8 @@
     align-content: center;
     justify-content: left;
     font-size: calc(2px + 2vmin);
-   width:100%;
-    padding: 2%;
+    width:100%;
+    padding: 1%;
 }
 .Account{
     width: 20%;
@@ -41,46 +41,51 @@
 }
 .Dashboard{
     display: flex;
-   align-items: center;
+    align-items: center;
 
 
 }
 
-.p-menubar{
-    background-color: black;
-}
-
-.p-menuitem{
-    background-color: black;
-}
 .card {
-    background: var(--surface-card);
-    padding: 2rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+
+
+    border-radius: 20px;
+
 }
 
 .card-header{
-    background-color: bisque;
-
+    background-color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-
     font-size: calc(2px + 2vmin);
     color: white;
     font-family: var(--font-family);
     font-weight: normal;
-    background: var(--surface-ground);
-    color: var(--text-color);
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.card-logo-header{
+    position: absolute;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-around;
+    font-size: calc(2px + 2vmin);
+    color: white;
+    font-family: var(--font-family);
+    font-weight: normal;
+    color: black;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 .p-card-title{
-
+    position: relative;
     text-align: left;
     background-color: goldenrod;
     color: black;
@@ -88,9 +93,20 @@
 }
 
 .p-card-content{
+
     text-align: left;
     background-color: white;
     color: goldenrod;
     width:100%;
     font-weight: bold;
+}
+.p-avatar{
+    width:20%;
+}
+
+.p-logo{
+    width:50px;
+    height:50px;
+    float: left;
+    align-items: start;
 }
