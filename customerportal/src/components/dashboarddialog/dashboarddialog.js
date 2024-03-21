@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import './dashboarddialog.css';
-import {Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
+import {Alert, Dialog, DialogActions, DialogContent, DialogTitle, Snackbar, TextField} from "@mui/material";
 import {Button} from "primereact/button";
 import {useFormik} from "formik";
 import * as yup from "yup";
@@ -29,10 +29,13 @@ const validationSchema=yup.object({
 })
 
 const Dashboarddialog = ({openData,change}) => {
-
-
-
     const [open, setOpen] = React.useState(false);
+    const [show, setShow] = React.useState(false);
+    const [position, setPosition]=useState({
+        vertical:'top',
+        horizontal:'center'
+    })
+    const { vertical, horizontal } = position;
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false);
@@ -41,7 +44,9 @@ const Dashboarddialog = ({openData,change}) => {
         change(false)
 
     }
-
+     function handleShowClose(){
+        setShow(false);
+     }
 
     useEffect(() => {
        setOpen(openData)
@@ -89,9 +94,15 @@ const Dashboarddialog = ({openData,change}) => {
         axios.post(Url+"api/v1/ChitTransactions?id="+formik.values.chitId,data)
             .then(response=>{
                 alert(JSON.stringify(response));
+                setShow(true);
+                setPosition({
+                    vertical: 'top',
+                    horizontal: 'right'
+                });
             })
     }
     return(
+     <div>
       <Dialog open={open}
             onClose={handleClose}>
 
@@ -166,6 +177,23 @@ const Dashboarddialog = ({openData,change}) => {
         </DialogActions>
 
     </Dialog>
+         <Snackbar
+             anchorOrigin={{ vertical, horizontal }}
+             open={show}
+             autoHideDuration={5000}
+             onClose={handleShowClose}
+             message="This Snackbar will be dismissed in 5 seconds."
+         >
+             <Alert
+                 onClose={handleShowClose}
+                 severity="success"
+                 variant="filled"
+                 sx={{ width: '100%' }}
+             >
+                 Payment Successfully Done!
+             </Alert>
+         </Snackbar>
+     </div>
 )};
 
 Dashboarddialog.propTypes = {};
