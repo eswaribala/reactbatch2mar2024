@@ -27,25 +27,24 @@ const validationSchema=yup.object({
 
 
 })
-let openData;
-const Dashboarddialog = () => {
+
+const Dashboarddialog = ({openData,change}) => {
 
 
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = async() => {
+    const handleClose = () => {
         setOpen(false);
-        openData=false
-        await sessionStorage.setItem("open",false);
+
+        openData=false;
+        change(false)
+
     }
 
 
     useEffect(() => {
-        let data = sessionStorage.getItem("open");
-        if(data === "true")
-            openData=true;
-        console.log(openData)
+       setOpen(openData)
 
     }, [open]);
 
@@ -93,12 +92,13 @@ const Dashboarddialog = () => {
             })
     }
     return(
-      <Dialog open={openData}
+      <Dialog open={open}
             onClose={handleClose}>
 
         <DialogTitle>Payment Information</DialogTitle>
         <DialogContent>
             <form>
+
                 <TextField
                     id="chitId"
                     type="number"

@@ -45,16 +45,15 @@ const Dashboard = () => {
     const customerId=sessionStorage.getItem("customerId");
     const[response,setResponse]=useState([]);
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    sessionStorage.setItem("open",false);
+
+
     const handleClickOpen = () => {
         setOpen(true);
 
     };
 
     useEffect(() => {
-        sessionStorage.setItem("open",true);
+        console.log(open);
     }, [open]);
     useEffect(() => {
       console.log(response);
@@ -69,7 +68,10 @@ const Dashboard = () => {
         })
     }
 
-
+    function handleChange(value){
+        setOpen(value);
+        console.log(open)
+    }
 
 
 
@@ -135,7 +137,7 @@ const Dashboard = () => {
                                    <Button label="Pay Now" severity="help"  onClick={handleClickOpen} />
                                    {
                                        (open) &&(
-                                       <Dashboarddialog />)
+                                       <Dashboarddialog openData={open} change={handleChange} />)
                                    }
                                </div>
                                <div className="card-header">
