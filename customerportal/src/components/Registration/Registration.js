@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import './Registration.css';
 import {Button, TextField} from "@mui/material";
@@ -6,6 +6,8 @@ import * as yup from 'yup'
 import {useFormik} from "formik";
 import RegisterLogoPath from '../../assets/register.jpg'
 import Captcha from "../captcha/captcha";
+import {useDispatch} from "react-redux";
+import {SaveRegistrationAction} from "../../reduxsrc/actions/signupaction";
 
 const validationSchema=yup.object({
     firstName:yup
@@ -20,37 +22,67 @@ const validationSchema=yup.object({
         .required("Last Name Required")
         .matches(/[A-Za-z]{3,25}/,
             "Last Name must contain minimum 3 characters and maximum 25 characters "),
-    dob: yup
-        .string("Enter DOB")
-        .required("DOB Required"),
+    email: yup
+        .string("Enter Email")
+        .required("Email Required")
+        .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+        "Email Format mismatch"),
     mobileNo: yup
         .string("Enter Mobile No")
         .required("Mobile No Required")
         .matches(/^([+]\d{2}[ ])?\d{10}$/,
-            "Mobile No Should be in 10 digits")
+            "Mobile No Should be in 10 digits"),
+    password: yup
+        .string("Enter Password")
+        .required("Password Required")
+        .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+            "Password Format mismatch"),
 
 })
 
 
 
+
 const Registration = () => {
+
+    const[captcha, setCaptcha]=useState('');
+    const[userText, setUserText]=useState('')
+    const dispatch=useDispatch();
 
     const formik=useFormik({
         initialValues:{
             "firstName":"",
             "lastName":"",
-            "dob":"",
-            "mobileNo":0
+            "email":"",
+            "mobileNo":0,
+            "password":""
         },
         validationSchema:validationSchema,
         onSubmit:(values)=>{
           alert(JSON.stringify(values));
+          alert(captcha+","+userText);
+          if(captcha === userText){
+              alert("success")
+              dispatch(SaveRegistrationAction(values)).then(response=>{
+                 alert(JSON.stringify(response));
+              })
+
+          }else{
+              alert("incorrect");
+          }
+
+
         }
     })
 
+    function handleCaptchaChange(value1,value2){
+       setCaptcha(value1)
+        setUserText(value2)
+
+    }
     return(
-     <div>
-     <img src={RegisterLogoPath} className="Registration"/>
+     <div className="Registration">
+     <img src={RegisterLogoPath} className="Image"/>
      <form onSubmit={formik.handleSubmit}>
          <TextField
              id="firstName"
@@ -79,14 +111,27 @@ const Registration = () => {
                     margin="dense">
 
          </TextField>
-         <TextField id="dob"
+         <TextField id="email"
 
-                    type="date"
-                    value={formik.values.dob}
+                    type="email"
+                    value={formik.values.email}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    error={formik.errors.dob && Boolean(formik.errors.dob)}
-                    helperText={formik.touched.dob && formik.errors.dob}
+                    error={formik.errors.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                    fullWidth
+                    variant="outlined"
+                    margin="dense">
+
+         </TextField>
+         <TextField id="password"
+
+                    type="password"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.errors.password && Boolean(formik.errors.password)}
+                    helperText={formik.touched.password && formik.errors.password}
                     fullWidth
                     variant="outlined"
                     margin="dense">
@@ -105,7 +150,7 @@ const Registration = () => {
                     margin="dense">
 
          </TextField>
-         <Captcha/>
+         <Captcha captchaStatus={handleCaptchaChange}/>
          <Button type="submit" color="success" variant="contained">
            Continue To Register
          </Button>
