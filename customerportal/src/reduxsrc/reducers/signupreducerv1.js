@@ -10,8 +10,8 @@ const registrationSlice = createSlice({
         save: (state, param) => {
 
             let res = RegistrationService.Create(param);
-          //  const { payload } = res.data;
-            state.customer = [...state.customer, param.payload];
+            const payload = res.data;
+            state.customer = [...state.customer, payload];
             StateService.Save(state.customer);
         },
     }
