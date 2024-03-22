@@ -7,6 +7,7 @@ export const SaveRegistrationAction=(values)=>async(dispatch)=>{
         let res = await RegistrationService.Create(values);
         dispatch({
             type: SAVE_REGISTRATION,
+            isLoaded: false,
             payload: res.data
         })
         return Promise.resolve(res.data);

@@ -6,7 +6,7 @@ import * as yup from 'yup'
 import {useFormik} from "formik";
 import RegisterLogoPath from '../../assets/register.jpg'
 import Captcha from "../captcha/captcha";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {SaveRegistrationAction} from "../../reduxsrc/actions/signupaction";
 
 const validationSchema=yup.object({
@@ -48,6 +48,7 @@ const Registration = () => {
     const[captcha, setCaptcha]=useState('');
     const[userText, setUserText]=useState('')
     const dispatch=useDispatch();
+
 
     const formik=useFormik({
         initialValues:{

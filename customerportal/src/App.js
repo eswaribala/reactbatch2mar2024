@@ -7,6 +7,8 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Registration from "./components/Registration/Registration";
 import Dashboard from "./components/dashboard/dashboard";
+import {useSelector} from "react-redux";
+import SignupReducer from "./reduxsrc/reducers/signupreducer";
 
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
         useState(new Date())
    const[isRegister,setIsRegister]=useState(false);
    const[isSubmit,setIsSubmit]=useState(false);
-
+    const customerState=useSelector((state)=>state.SignupReducer);
     function handleChange(newValue){
         setIsRegister(newValue)
     }
@@ -32,8 +34,19 @@ function App() {
 
   return (
     <div className="App">
-        { (!isSubmit) &&(
-      <div>
+        {
+            customerState.isLoaded?
+                <>
+                    <h4>{customerState.customer.name.firstName}</h4>
+                </>:
+                <>
+                    <h4>No Registered User</h4>
+                </>
+        }
+
+
+        {(!isSubmit) && (
+            <div>
       <header className="App-header">
         <Logo/>
         <h1 className="multicolortext">Customer Portal</h1>

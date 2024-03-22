@@ -1,18 +1,16 @@
 
 //redux state
-const initialValues={
+import {SAVE_REGISTRATION} from "../types/types";
 
-    customerValues:[],
 
-}
 
-const SignupReducer=(state=initialValues,action)=>{
+const SignupReducer=(state={},action)=>{
     switch(action.type){
-        case 'SAVE_REGISTRATION' :
+        case SAVE_REGISTRATION :
             return{
-
-                customerValues: action.payload,
-
+                ...state,
+               customer:action.payload,
+               isLoaded:true
             }
         default: return state;
     }
