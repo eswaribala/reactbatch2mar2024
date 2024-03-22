@@ -16,6 +16,7 @@ module.exports.Add=function(obj)
             customerId:0,
             firstName:obj.firstName,
             lastName:obj.lastName,
+            middleName:"",
             email:obj.email,
             password:obj.password,
             phone:obj.mobileNo
