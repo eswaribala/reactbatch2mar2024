@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 Schema = mongoose.Schema;
 
-var stateSchema = new mongoose.Schema({
+var customerSchema = new mongoose.Schema({
     customerId:Number,
     firstName: String,
     lastName:String,
@@ -10,3 +10,5 @@ var stateSchema = new mongoose.Schema({
     password:String,
     phone:Number
 })
+
+module.exports.CustomerModel = mongoose.model('CustomerModel',customerSchema );
