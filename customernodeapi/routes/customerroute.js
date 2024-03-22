@@ -1,6 +1,6 @@
 var express=require('express')
 var router=express.Router();
-
+const customerState=require('../services/customerservice')
 router.post('/customers', function(req, res, next) {
     console.log("Testing...")
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -9,7 +9,7 @@ router.post('/customers', function(req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     console.log(req);
     //console.log(request);
-    // refAddState.Add(request.query.ID,request.query.Name);
+     customerState.Add(req);
 
     res.end("Object received successfully");
 });
