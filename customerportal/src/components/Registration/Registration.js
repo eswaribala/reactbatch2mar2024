@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import './Registration.css';
-import {Button, TextField} from "@mui/material";
+import {Box, Button, TextField} from "@mui/material";
 import * as yup from 'yup'
 import {useFormik} from "formik";
 import RegisterLogoPath from '../../assets/register.jpg'
@@ -49,7 +49,7 @@ const Registration = () => {
     const[captcha, setCaptcha]=useState('');
     const[userText, setUserText]=useState('')
     const dispatch=useDispatch();
-
+    const { customer } = useSelector(state=>state)
 
     const formik=useFormik({
         initialValues:{
@@ -65,7 +65,7 @@ const Registration = () => {
           alert(captcha+","+userText);
          // if(captcha === userText){
               alert("success")
-              dispatch(save(values))
+              dispatch(save(values));
                   //.then(response=>{
                  //alert(JSON.stringify(response));
               //})
@@ -85,6 +85,7 @@ const Registration = () => {
     }
     return(
      <div className="Registration">
+
      <img src={RegisterLogoPath} className="Image"/>
      <form onSubmit={formik.handleSubmit}>
          <TextField

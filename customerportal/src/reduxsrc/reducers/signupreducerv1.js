@@ -7,12 +7,12 @@ const registrationSlice = createSlice({
         customer: [],
     },
     reducers: {
-        save: (state, param) => {
+        save:  (state, param) => {
 
-            let res = RegistrationService.Create(param);
+            let res =  RegistrationService.Create(param);
             const payload = res.data;
             state.customer = [...state.customer, payload];
-            StateService.Save(state.customer);
+            StateService.Save(param.payload);
         },
     }
 });
