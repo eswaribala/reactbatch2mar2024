@@ -63,15 +63,15 @@ const Registration = () => {
         onSubmit:(values)=>{
           alert(JSON.stringify(values));
           alert(captcha+","+userText);
-          if(captcha === userText){
+         // if(captcha === userText){
               alert("success")
               dispatch(save(values)).then(response=>{
                  alert(JSON.stringify(response));
               })
 
-          }else{
-              alert("incorrect");
-          }
+         // }else{
+         //     alert("incorrect");
+        //  }
 
 
         }

@@ -17,7 +17,7 @@ function App() {
         useState(new Date())
    const[isRegister,setIsRegister]=useState(false);
    const[isSubmit,setIsSubmit]=useState(false);
-    const customerState=useSelector((state)=>state.SignupReducer);
+  //  const customerState=useSelector((state)=>state.SignupReducer);
     function handleChange(newValue){
         setIsRegister(newValue)
     }
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-        {
+       {/* {
             customerState.isLoaded?
                 <>
                     <h4>{customerState.customer.name.firstName}</h4>
@@ -42,7 +42,7 @@ function App() {
                 <>
                     <h4>No Registered User</h4>
                 </>
-        }
+        }*/}
 
 
         {(!isSubmit) && (
