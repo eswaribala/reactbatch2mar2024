@@ -7,7 +7,8 @@ import {useFormik} from "formik";
 import RegisterLogoPath from '../../assets/register.jpg'
 import Captcha from "../captcha/captcha";
 import {useDispatch, useSelector} from "react-redux";
-import {SaveRegistrationAction} from "../../reduxsrc/actions/signupaction";
+//import {SaveRegistrationAction} from "../../reduxsrc/actions/signupaction";
+import {save} from '../../reduxsrc/reducers/signupreducerv1'
 
 const validationSchema=yup.object({
     firstName:yup
@@ -64,7 +65,7 @@ const Registration = () => {
           alert(captcha+","+userText);
           if(captcha === userText){
               alert("success")
-              dispatch(SaveRegistrationAction(values)).then(response=>{
+              dispatch(save(values)).then(response=>{
                  alert(JSON.stringify(response));
               })
 
