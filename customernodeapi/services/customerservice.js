@@ -22,11 +22,7 @@ module.exports.Add=function(obj)
             phone:obj.mobileNo
 
         });
-    obj.save(function(err,result){
-        if(!err)
-            console.log(result);
-
-    });
+    obj.save();
 
 }
 

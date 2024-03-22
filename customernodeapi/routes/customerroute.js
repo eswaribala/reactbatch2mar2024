@@ -7,11 +7,11 @@ router.post('/customers', function(req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
     res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
     res.setHeader('Access-Control-Allow-Credentials', true);
-    console.log(req);
+    console.log(req.body);
     //console.log(request);
-     customerState.Add(req);
+     customerState.Add(req.body);
 
-    res.end("Object received successfully");
+    res.send("Object received successfully");
 });
 router.get('/customers', function(req, res, next) {
 
