@@ -88,6 +88,7 @@ const Registration = () => {
              (isLoaded)?
                  <>
                      <h1>{customer.firstName}</h1>
+
                  </>:
                  <>
                  <h1>Customer Not Available</h1>

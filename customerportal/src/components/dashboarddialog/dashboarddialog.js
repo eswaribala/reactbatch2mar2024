@@ -7,6 +7,7 @@ import {useFormik} from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import {Url} from "../../config/Configuration";
+import Toast from '../toast/toast'
 const validationSchema=yup.object({
 
     chitId:yup
@@ -29,6 +30,7 @@ const validationSchema=yup.object({
 })
 
 const Dashboarddialog = ({openData,change}) => {
+    const[message,setMessage]=useState('');
     const [open, setOpen] = React.useState(false);
     const [show, setShow] = React.useState(false);
     const [position, setPosition]=useState({
@@ -36,6 +38,7 @@ const Dashboarddialog = ({openData,change}) => {
         horizontal:'center'
     })
     const { vertical, horizontal } = position;
+
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false);
@@ -44,9 +47,7 @@ const Dashboarddialog = ({openData,change}) => {
         change(false)
 
     }
-     function handleShowClose(){
-        setShow(false);
-     }
+
 
     useEffect(() => {
        setOpen(openData)
@@ -99,6 +100,7 @@ const Dashboarddialog = ({openData,change}) => {
                     vertical: 'top',
                     horizontal: 'right'
                 });
+                setMessage('Payment Done Successfully')
             })
     }
     return(
@@ -177,22 +179,9 @@ const Dashboarddialog = ({openData,change}) => {
         </DialogActions>
 
     </Dialog>
-         <Snackbar
-             anchorOrigin={{ vertical, horizontal }}
-             open={show}
-             autoHideDuration={5000}
-             onClose={handleShowClose}
-             message="This Snackbar will be dismissed in 5 seconds."
-         >
-             <Alert
-                 onClose={handleShowClose}
-                 severity="success"
-                 variant="filled"
-                 sx={{ width: '100%' }}
-             >
-                 Payment Successfully Done!
-             </Alert>
-         </Snackbar>
+
+    <Toast showValue={show} positionValue={position}  messageValue={message}/>
+
      </div>
 )};
 
