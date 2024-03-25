@@ -27,7 +27,7 @@ const Toast = ({showValue,positionValue,messageValue}) => {
             variant="filled"
             sx={{ width: '100%' }}
         >
-            {message}
+            {messageValue}
         </Alert>
     </Snackbar>
 )};
