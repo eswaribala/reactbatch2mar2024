@@ -8,6 +8,7 @@ import RegisterLogoPath from '../../assets/register.jpg'
 import Captcha from "../captcha/captcha";
 import {useDispatch, useSelector} from "react-redux";
 import {save} from '../../reduxsrc/reducers/signupreducerv1'
+import Toast from "../toast/toast";
 
 const validationSchema=yup.object({
     firstName:yup
@@ -49,6 +50,13 @@ const Registration = () => {
     const[userText, setUserText]=useState('')
     const dispatch=useDispatch();
     const { customer, isLoaded } = useSelector(state => state.slicer);
+    const [show, setShow] = React.useState(false);
+    const [position, setPosition]=useState({
+        vertical:'top',
+        horizontal:'center'
+    })
+    const [message,setMessage]=useState('');
+    const { vertical, horizontal } = position;
 
     const formik=useFormik({
         initialValues:{
@@ -65,6 +73,12 @@ const Registration = () => {
          // if(captcha === userText){
               alert("success")
               dispatch(save(values));
+            setShow(true);
+            setPosition({
+                vertical: 'top',
+                horizontal: 'right'
+            });
+            setMessage('Registration Successful')
                   //.then(response=>{
                  //alert(JSON.stringify(response));
               //})
@@ -168,6 +182,10 @@ const Registration = () => {
            Continue To Register
          </Button>
      </form>
+         {
+             (show) && (
+            <Toast showValue={show} positionValue={position} messageValue={message} />)
+         }
      </div>
 )};
 
