@@ -2,20 +2,31 @@ import { createSlice } from '@reduxjs/toolkit';
 import RegistrationService from "../services/signupservice";
 import StateService from "../services/stateservice";
 const registrationSlice = createSlice({
-    name: "customer",
+    name: "customers",
     initialState: {
-        customer: [],
+        customer: {},
+        isLoaded:false
     },
     reducers: {
-        save:  (state, param) => {
 
+        save:  (state, param) => {
             let res =  RegistrationService.Create(param);
-            const payload = res.data;
-            state.customer = [...state.customer, payload];
+            //const payload = res.data;
+            //state.customer = [...state.customer, payload];
             StateService.Save(param.payload);
+            return{
+                ...state,
+                isLoaded: true,
+                customer:param.payload
+
+            }
         },
     }
 });
-const { actions, reducer } = registrationSlice
-export const { save } = actions;
-export default reducer;
+
+
+
+// Actions
+
+export const { save } = registrationSlice.actions
+export default registrationSlice.reducer

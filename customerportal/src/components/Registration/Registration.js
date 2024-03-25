@@ -7,7 +7,6 @@ import {useFormik} from "formik";
 import RegisterLogoPath from '../../assets/register.jpg'
 import Captcha from "../captcha/captcha";
 import {useDispatch, useSelector} from "react-redux";
-//import {SaveRegistrationAction} from "../../reduxsrc/actions/signupaction";
 import {save} from '../../reduxsrc/reducers/signupreducerv1'
 
 const validationSchema=yup.object({
@@ -49,7 +48,7 @@ const Registration = () => {
     const[captcha, setCaptcha]=useState('');
     const[userText, setUserText]=useState('')
     const dispatch=useDispatch();
-    const { customer } = useSelector(state=>state)
+    const { customer, isLoaded } = useSelector(state => state.slicer);
 
     const formik=useFormik({
         initialValues:{
@@ -85,6 +84,15 @@ const Registration = () => {
     }
     return(
      <div className="Registration">
+        {
+             (isLoaded)?
+                 <>
+                     <h1>{customer.firstName}</h1>
+                 </>:
+                 <>
+                 <h1>Customer Not Available</h1>
+                 </>
+         }
 
      <img src={RegisterLogoPath} className="Image"/>
      <form onSubmit={formik.handleSubmit}>
