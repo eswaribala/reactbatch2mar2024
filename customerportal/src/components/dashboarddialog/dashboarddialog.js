@@ -180,8 +180,11 @@ const Dashboarddialog = ({openData,change}) => {
 
     </Dialog>
 
-    <Toast showValue={show} positionValue={position}  messageValue={message}/>
-
+         {
+             (show)&&(
+     <Toast showValue={show} positionValue={position}  messageValue={message}/>
+             )
+         }
      </div>
 )};
 
