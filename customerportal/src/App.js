@@ -9,6 +9,7 @@ import Registration from "./components/Registration/Registration";
 import Dashboard from "./components/dashboard/dashboard";
 import {useSelector} from "react-redux";
 import SignupReducer from "./reduxsrc/reducers/signupreducer";
+import Duepayment from "./components/duepayment/duepayment";
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
       <section>
           <Routes>
               <Route path="/dashboard" element={<Dashboard/>}></Route>
+              <Route path="/duepayment" element={<Duepayment/>}></Route>
               <Route path="/" element={<App/>}></Route>
           </Routes>
       </section>

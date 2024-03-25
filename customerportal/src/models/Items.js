@@ -9,7 +9,8 @@ export const items=[
     },
     {
         label: 'Due Payments',
-        icon: 'pi pi-money-bill'
+        icon: 'pi pi-money-bill',
+
     },
     {
         label: 'Receipts',

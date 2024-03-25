@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import './dashboard.css';
 import EmailIcon from "@mui/icons-material/Email";
@@ -17,12 +17,11 @@ import {InputText} from "primereact/inputtext";
 import {Box, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Typography} from "@mui/material";
 import {useFormik} from "formik";
 import Dashboarddialog from "../dashboarddialog/dashboarddialog";
+import Dashboardmenu from "../dashboardmenu/dashboardmenu";
 
 const RestAPIUrl=Url+"filter/"
-
-
-
-
+//step 1
+export const CustomerContext=createContext();
 
 const style = {
     position: 'absolute',
@@ -81,14 +80,9 @@ const Dashboard = () => {
         return (
       <div onLoad={handleLoad}>
         <div>
-            <header className="header">
-                <Logo/>
-                <Menubar key={items.label} model={items}></Menubar>
-                <div className="welcome">
-                    <h4>Hi&nbsp;&nbsp;{firstName}</h4>
-                    &nbsp;&nbsp;<span className="pi pi-user"></span>
-                </div>
-            </header>
+           <CustomerContext.Provider value={firstName}>
+            <Dashboardmenu />
+           </CustomerContext.Provider>
             <article className="article">
                 <div className="Account">
                     <AccountCircleIcon color="primary" sx={{fontSize: 110}}
