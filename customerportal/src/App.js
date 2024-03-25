@@ -10,6 +10,7 @@ import Dashboard from "./components/dashboard/dashboard";
 import {useSelector} from "react-redux";
 import SignupReducer from "./reduxsrc/reducers/signupreducer";
 import Duepayment from "./components/duepayment/duepayment";
+import Receipts from "./components/receipts/receipts";
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
           <Routes>
               <Route path="/dashboard" element={<Dashboard/>}></Route>
               <Route path="/duepayment" element={<Duepayment/>}></Route>
+              <Route path="/receipts" element={<Receipts/>}></Route>
               <Route path="/" element={<App/>}></Route>
           </Routes>
       </section>

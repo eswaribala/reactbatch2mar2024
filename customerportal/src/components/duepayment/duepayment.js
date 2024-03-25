@@ -5,9 +5,10 @@ import Dashboardmenu from "../dashboardmenu/dashboardmenu";
 import {useLocation} from "react-router-dom";
 
 const Duepayment = () => {
-  const location=useLocation()
+ // const location=useLocation()
     return(
-  <Dashboardmenu name={location.state.name}/>
+  // <Dashboardmenu name={location.state.name}/>
+  <Dashboardmenu />
 )};
 
 Duepayment.propTypes = {};

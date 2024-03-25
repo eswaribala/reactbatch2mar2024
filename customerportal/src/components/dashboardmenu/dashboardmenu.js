@@ -7,14 +7,16 @@ import {items} from "../../models/Items";
 import {useNavigate} from "react-router-dom";
 import {CustomerContext} from "../dashboard/dashboard";
 
-const Dashboardmenu = ({name}) => {
+const Dashboardmenu = () => {
     const navigate=useNavigate();
     const firstName = useContext(CustomerContext)
+
     const items=[
         {
             label: 'Home',
             icon: 'pi pi-home',
             command:()=>{
+                // navigate("/dashboard", {state:{name:firstName}})
                 navigate("/dashboard")
             }
         },
@@ -26,12 +28,15 @@ const Dashboardmenu = ({name}) => {
             label: 'Due Payments',
             icon: 'pi pi-money-bill',
             command:()=>{
-                navigate("/duepayment",{state:{name:firstName}})
+                navigate("/duepayment")
             }
         },
         {
             label: 'Receipts',
-            icon: 'pi pi-book'
+            icon: 'pi pi-book',
+            command:()=>{
+                navigate("/receipts")
+         }
         },
         {
             label: 'More',
@@ -57,7 +62,7 @@ const Dashboardmenu = ({name}) => {
         <Logo/>
         <Menubar key={items.label} model={items}></Menubar>
         <div className="welcome">
-            <h4>Hi&nbsp;&nbsp;{firstName}{name}</h4>
+            <h4>Hi&nbsp;&nbsp;{sessionStorage.getItem("firstName")}</h4>
             &nbsp;&nbsp;<span className="pi pi-user"></span>
         </div>
     </header>
