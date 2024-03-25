@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './duepayment.css';
+import Dashboardmenu from "../dashboardmenu/dashboardmenu";
+import {useLocation} from "react-router-dom";
 
-const Duepayment = () => (
-  <div className="duepayment">
-    Duepayment Component
-  </div>
-);
+const Duepayment = () => {
+  const location=useLocation()
+    return(
+  <Dashboardmenu name={location.state.name}/>
+)};
 
 Duepayment.propTypes = {};
 
