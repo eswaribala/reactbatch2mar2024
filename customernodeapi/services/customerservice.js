@@ -27,8 +27,26 @@ module.exports.Add=function(obj)
 }
 
 
+module.exports.FetchCustomers=function(req,res){
+    CustomerModel.find().then(data=>{
+        res.send(data);
+    }).catch(err=>{
+        res.status(500).send({
+            message:
+                err.message || 'Some error occurred while reading customer data'
+        });
+    });
+}
 
-
-
+module.exports.FetchCustomerById=function(req,res){
+    CustomerModel.findById(req.body.cistomerId). then(data=>{
+        res.send(data);
+    }).catch(err=>{
+        res.status(500).send({
+            message:
+                err.message || 'Some error occurred while reading customer data'
+        });
+    });
+}
 
 

@@ -1,6 +1,7 @@
 var express=require('express')
 var router=express.Router();
 const customerState=require('../services/customerservice')
+const {FetchCustomers} = require("../services/customerservice");
 router.post('/customers', function(req, res, next) {
     console.log("Testing...")
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -22,8 +23,7 @@ router.get('/customers', function(req, res, next) {
     //console.log(req.body);
     //console.log(request);
     // refAddState.Add(request.query.ID,request.query.Name);
-
-    res.end("Ready to Rock!!!!");
+    return (FetchCustomers(req,res));
 });
 
 
