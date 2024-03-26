@@ -1,28 +1,41 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 import axios from "axios";
 import {ExpressUrl} from "../../config/Configuration";
-export const customerSlice = createSlice({
+
+const duePaymentSlice = createSlice({
     name: "customers",
     initialState: {
-        list: []
+        customers: {},
+        isLoaded:false
     },
     reducers: {
-        // action
-        setCustomerList: (state, action) => {
-            state.list = action.payload;
-        }
+
+        fetch:  (state, param) => {
+
+            return{
+                ...state,
+                isLoaded: true,
+                customers:param.payload
+
+            }
+        },
     }
 });
 
-export const { setCustomerList } = customerSlice.actions;
+
+
+// Actions
+
+export const { fetch } = duePaymentSlice.actions
+export default duePaymentSlice.reducer
 
 export const fetchAllCustomers = () => (dispatch) => {
     axios
         .get(ExpressUrl+"api/customers")
         .then((response) => {
-            dispatch(setCustomerList(response.data));
+            dispatch(fetch(response.data));
         })
         .catch((error) => console.log(error));
 };
 
-export default customerSlice.reducer;
+

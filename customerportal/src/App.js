@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import {Component, useEffect, useState} from "react";
-import Logo from './components/Logo/Logo'
-import Banner from './components/Banner/Banner'
+import Logo from 'components/Logo/Logo'
+import Banner from 'components/Banner/Banner'
 import LoginForm from "./components/LoginForm/LoginForm";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Registration from "./components/Registration/Registration";

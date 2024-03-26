@@ -1,10 +1,10 @@
 import SignupReducer from "./signupreducer";
 import reducer from "./signupreducerv1";
 import { combineReducers } from '@reduxjs/toolkit'
-import registrationSlice from "../reducers/signupreducerv1";
-import {customerSlice} from "./duepaymentreducer";
+import registrationSlicer from "../reducers/signupreducerv1";
+import duePaymentSlicer from "./duepaymentreducer";
 
 export default combineReducers({
-     registrationSlice,
-     customerSlice
+     slicer:registrationSlicer,
+     duePaymentSlicer:duePaymentSlicer
 })

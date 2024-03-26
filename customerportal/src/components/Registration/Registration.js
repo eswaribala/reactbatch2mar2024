@@ -49,7 +49,8 @@ const Registration = () => {
     const[captcha, setCaptcha]=useState('');
     const[userText, setUserText]=useState('')
     const dispatch=useDispatch();
-    const { customer, isLoaded } = useSelector(state => state.slicer);
+    const  customer = useSelector(state => state.topSlicer.slicer.customer);
+    const  isLoaded = useSelector(state => state.topSlicer.slicer.isLoaded);
     const [show, setShow] = React.useState(false);
     const [position, setPosition]=useState({
         vertical:'top',

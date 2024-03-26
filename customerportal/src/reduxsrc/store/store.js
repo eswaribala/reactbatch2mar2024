@@ -1,11 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit";
 import RootReducer from "../reducers";
 //import registrationSlice from "../reducers/signupreducerv1";
-import reducer from '../reducers/index'
+import rootReducer from '../reducers/index'
 
 
 const index = configureStore({
-    reducer
+    reducer:{
+        topSlicer: rootReducer
+    }
 
 });
 
