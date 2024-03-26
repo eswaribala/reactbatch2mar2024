@@ -10,8 +10,7 @@ const Receipts = () => {
     return(
   <div className="receipts">
 
-      return(
-      {/*<Dashboardmenu name={location.state.name}/>*/}
+
       <Dashboardmenu/>
 
   </div>

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from "react-router-dom";
-import "primereact/resources/themes/vela-purple/theme.css"
+import "primereact/resources/themes/bootstrap4-dark-blue/theme.css"
 import "primereact/resources/primereact.min.css"
 import "primeicons/primeicons.css"
 import {Provider} from "react-redux";

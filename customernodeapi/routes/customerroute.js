@@ -12,7 +12,10 @@ router.post('/customers', function(req, res, next) {
     //console.log(request);
      customerState.Add(req.body);
 
-    res.send("Object received successfully");
+    res.send({
+       "data":req.body,
+       "message": "Object received successfully"
+    });
 });
 router.get('/customers', function(req, res, next) {
 

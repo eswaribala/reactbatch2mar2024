@@ -1,6 +1,18 @@
-.Duepayment {}
+.Duepayment {
+
+}
 
 .p-datatable{
     padding:4%;
     width:70%;
+
+}
+.p-datatable-wrapper{
+    background-color: goldenrod;
+}
+.p-datatable-table{
+    background-color: goldenrod;
+}
+.p-datatable-tbody{
+    background-color: goldenrod;
 }
