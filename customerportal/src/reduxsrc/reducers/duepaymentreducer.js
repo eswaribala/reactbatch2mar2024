@@ -42,13 +42,13 @@ export const fetchAllCustomers = () => (dispatch) => {
                         .toString(enc.Utf8)),
                     "lastName":JSON.parse(AES.decrypt(customer.lastName, secretPass)
                         .toString(enc.Utf8)),
-                    "email":obj.email,
-                    "phone":obj.phone
+                    "email":customer.email,
+                    "phone":customer.phone
                 }
                 customerData.push(obj);
 
             })
-
+            alert(JSON.stringify(customerData));
 
             dispatch(fetch(customerData));
 
