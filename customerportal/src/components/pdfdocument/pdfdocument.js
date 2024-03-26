@@ -6,23 +6,13 @@ import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import {DueContext} from "../duepayment/duepayment";
 import {Button} from "primereact/button";
-/*
-// Create styles
-const styles = StyleSheet.create({
-    page: {
-        flexDirection: 'row',
-        backgroundColor: '#E4E4E4'
-    },
-    section: {
-        margin: 10,
-        padding: 10,
-        flexGrow: 1
-    }
-});*/
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 const Pdfdocument = () => {
     const customers=useContext(DueContext)
     const paginatorLeft = <Button type="button" icon="pi pi-refresh" text />;
-    const paginatorRight = <Button type="button" icon="pi pi-download" text />;
+    const paginatorRight = <Button type="button" icon="pi pi-download"  text  onClick={() => exportPDF(customers)}/>;
+
    return (
         <div className="pdfdocument">
             {/*<Document>*/}
@@ -47,5 +37,27 @@ const Pdfdocument = () => {
 Pdfdocument.propTypes = {};
 
 Pdfdocument.defaultProps = {};
+
+const exportPDF = (customers) => {
+    const unit = "pt";
+    const size = "A4"; // Use A1, A2, A3 or A4
+    const orientation = "portrait"; // portrait or landscape
+
+    const marginLeft = 40;
+    const doc = new jsPDF(orientation, unit, size);
+    doc.setFontSize(15);
+
+    const title = "Due Payment Report";
+    const headers = [["FIRST NAME", "LAST NAME","EMAIL", "MOBILE NO"]];
+    doc.setFontSize(15);
+    const data = customers.map(elt=> [elt.firstName, elt.lastName,elt.email,elt.phone]);
+    let content = {
+        startY: 50,
+        head: headers,
+        body: data
+    };
+    doc.autoTable(content);
+    doc.save("report.pdf")
+}
 
 export default Pdfdocument;

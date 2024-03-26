@@ -17,8 +17,10 @@ const registrationSlice = createSlice({
             //state.customer = [...state.customer, payload];
             StateService.Save(param.payload).then(response=>{
                 console.log(JSON.stringify(response.data))
-                alert(JSON.parse(AES.decrypt(response.data.data.firstName, secretPass)
-                     .toString(enc.Utf8)))
+                let customerName=  JSON.parse(AES.decrypt(response.data.data.firstName, secretPass)
+                     .toString(enc.Utf8))
+                console.log(customerName);
+                alert(customerName);
             })
             return{
                 ...state,
