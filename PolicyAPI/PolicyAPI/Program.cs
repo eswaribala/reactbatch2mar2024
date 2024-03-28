@@ -1,5 +1,7 @@
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using PolicyAPI.Configurations;
+using PolicyAPI.Contexts;
 using Steeltoe.Extensions.Configuration.ConfigServer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +24,12 @@ SqlConnectionStringBuilder providerCs
 providerCs.UserID = result["username"].ToString();
 providerCs.Password = result["password"].ToString();
 providerCs.DataSource = configuration["trainerservername"];
+providerCs.InitialCatalog = configuration["dbName"];
+providerCs.MultipleActiveResultSets = true;
+providerCs.TrustServerCertificate = false;
 
+builder.Services.AddDbContext<PolicyContext>(o =>
+o.UseSqlServer(providerCs.ToString()));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
