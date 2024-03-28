@@ -7,10 +7,11 @@ namespace PolicyAPI.Configurations
     {
         private IConfiguration _configuration =configuration;
 
-        public async Task<Dictionary<string,object>> GetSecrets()
+        public async Task<Dictionary<string,object>> GetSecrets(string RootKey, 
+            string Url)
         {
-            var Url = _configuration["Url"];
-            var RootKey = _configuration["Root_Key"];
+           // var Url = _configuration["Url"];
+           // var RootKey = _configuration["Root_Key"];
             TokenAuthMethodInfo tokenAuthMethodInfo= 
                 new TokenAuthMethodInfo(RootKey);
           VaultClientSettings vaultClientSettings=
