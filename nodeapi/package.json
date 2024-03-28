@@ -1,0 +1,37 @@
+{
+  "name": "customerapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "axios": "^1.1.2",
+    "body-parser": "^1.20.1",
+    "config": "^3.3.8",
+    "cors": "^2.8.5",
+    "es6-promise": "^4.2.8",
+    "eureka-js-client": "^4.5.0",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "fetch-retry": "^5.0.3",
+    "graphql": "^16.6.0",
+    "kafka-node": "^5.0.0",
+    "kafkajs": "^2.2.2",
+    "mongoose": "^6.6.5",
+    "node-vault": "^0.9.22",
+    "nodemon": "^2.0.20",
+    "swagger-autogen": "^2.22.0",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.5.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
