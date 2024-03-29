@@ -4,8 +4,8 @@ namespace PolicyAPI.Repositories
 {
     public interface IPolicyRepo
     {
-        Task<Policy> AddPolicy(Policy policy);
-        Task<Policy> DeletePolicy(long PolicyNo);
+        Task<Policy> AddPolicy(Policy policy,string adharCardNo,string registrationNo);
+        Task<bool> DeletePolicy(long PolicyNo);
 
         Task<Policy> GetPolicyByPolicyNo(long PolicyNo);
 
