@@ -50,9 +50,9 @@ namespace PolicyAPI.Controllers
 
         
         [HttpPut("{adharCardNo}/{email}/{phone}")]
-        public async Task<IActionResult> Put(string adharCardNo, [FromBody] string email,long Phone)
+        public async Task<IActionResult> Put(string adharCardNo, string email,long phone)
         {
-            var result = await _policyHolderRepo.UpdatePolicyHolderData(adharCardNo, email, Phone); 
+            var result = await _policyHolderRepo.UpdatePolicyHolderData(adharCardNo, email, phone); 
             return CreatedAtAction(nameof(Get),
                          new { id = result.AdharCardNo}, result);
         }
