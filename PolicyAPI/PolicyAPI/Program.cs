@@ -31,7 +31,7 @@ providerCs.Password = result["password"].ToString();
 providerCs.DataSource = configuration["trainerservername"];
 providerCs.InitialCatalog = configuration["dbName"];
 providerCs.MultipleActiveResultSets = true;
-providerCs.TrustServerCertificate = false;
+providerCs.TrustServerCertificate = true;
 
 builder.Services.AddDbContext<PolicyContext>(o =>
 o.UseSqlServer(providerCs.ToString()));
