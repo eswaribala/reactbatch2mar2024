@@ -66,9 +66,10 @@ namespace PolicyAPI.Repositories
             return IsAddressExists(doorNo, streetName, adharCardNo);
         }
 
-        public async Task<Address> UpdateAddress(Address address, string adharCardNo)
+        public async Task<Address> UpdateAddress(Address address, string oldDoorNo, 
+            string oldStreetName, string adharCardNo)
         {
-            var result = await IsAddressExists(address.DoorNo, address.StreetName, adharCardNo);
+            var result = await IsAddressExists(oldDoorNo,oldStreetName, adharCardNo);
 
             if (result != null)
             {
@@ -85,4 +86,4 @@ namespace PolicyAPI.Repositories
         }
     }
 }
-}
+

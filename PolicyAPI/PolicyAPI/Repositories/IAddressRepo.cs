@@ -11,6 +11,6 @@ namespace PolicyAPI.Repositories
 
         Task<IEnumerable<Address>> GetAllAddresss();
 
-        Task<Address> UpdateAddress(Address Address, string adharCardNo);
+        Task<Address> UpdateAddress(Address Address, string oldDoorNo, string oldStreetName,string adharCardNo);
     }
 }
