@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace PolicyAPI.Models
 {
@@ -12,7 +14,7 @@ namespace PolicyAPI.Models
         public string AdharCardNo { get; set; } =string.Empty;
         public FullName? Name { get; set; }
         [Column("Gender")]
-       
+        [EnumDataType(typeof(Gender))]       
         public Gender? Gender { get; set; }
         [Column("DOB")]
         [DataType(DataType.Date)]

@@ -8,6 +8,10 @@ using PolicyAPI.Contexts;
 using PolicyAPI.Repositories;
 using Steeltoe.Extensions.Configuration.ConfigServer;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Steeltoe.Extensions.Configuration;
+using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 //step to add config server
@@ -19,6 +23,14 @@ var RootKey = configuration["rootkey"].ToString();
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+    });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 
@@ -45,6 +57,7 @@ builder.Services.AddTransient<IAddressRepo, AddressRepo>();
 builder.Services.AddTransient<IVehicleRepo, VehicleRepo>();
 
 builder.Services.AddEndpointsApiExplorer();
+
 
 
 builder.Services.AddSwaggerGen(opt =>
