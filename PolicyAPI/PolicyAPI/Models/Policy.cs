@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace PolicyAPI.Models
 {
@@ -25,12 +26,16 @@ namespace PolicyAPI.Models
 
         [ForeignKey("PolicyHolder")]
         [Column("AdharCard_No_FK")]
+       
         public string AdharCardNo { get; set; }
-        public PolicyHolder? PolicyHolder { get; set; }
+        [JsonIgnore]
+        public PolicyHolder PolicyHolder { get; set; }
 
         [ForeignKey("Vehicle")]
         [Column("Registration_No_FK")]
+     
         public string RegistrationNo { get; set; }
+        [JsonIgnore]
         public Vehicle Vehicle { get; set; }
 
     }

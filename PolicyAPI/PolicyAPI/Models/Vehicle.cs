@@ -26,6 +26,7 @@ namespace PolicyAPI.Models
         [Required]
         public string EngineNo { get; set; }
         [Column("Fuel_Type")]
+        [EnumDataType(typeof(FuelType))]
         [Required]
         public FuelType FuelType { get; set; }
         [Column("Color")]
