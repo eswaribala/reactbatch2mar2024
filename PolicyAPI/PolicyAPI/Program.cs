@@ -41,7 +41,7 @@ SqlConnectionStringBuilder providerCs
 providerCs.UserID = result["username"].ToString();
 providerCs.Password = result["password"].ToString();
 providerCs.DataSource = configuration["trainerservername"];
-providerCs.InitialCatalog = configuration["dbName"];
+providerCs.InitialCatalog = "PolicyDbBatch2";
 providerCs.MultipleActiveResultSets = true;
 providerCs.TrustServerCertificate = true;
 
