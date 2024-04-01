@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PolicyAPI.Contexts;
+using PolicyAPI.DTOs;
 using PolicyAPI.Models;
 using PolicyAPI.Repositories;
 
@@ -30,11 +31,12 @@ namespace PolicyAPI.Controllers
         }
 
         // GET: api/Addresses/5
-        [HttpGet("{doorNo}/{streetName}/{adharCardNo}")]
-        public async Task<ActionResult<Address>> GetAddress(string doorNo,
-            string streetName,string adharCardNo)
+        [HttpPut]
+        public async Task<ActionResult<Address>> GetAddress( 
+        AddressRequest addressRequest)
         {
-            var address = await _addressRepo.GetAddressById(doorNo, streetName, adharCardNo);
+            var address = await _addressRepo.GetAddressById(addressRequest.DoorNo, 
+                addressRequest.StreetName, addressRequest.AdharCardNo);
 
             if (address == null)
             {
