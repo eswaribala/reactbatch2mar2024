@@ -17,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 //step to add config server
 builder.Configuration.AddConfigServer();
 ConfigurationManager configuration = builder.Configuration;
-var Url = configuration["url"].ToString();
+var Url = configuration["awsvaulturl"].ToString();
 var RootKey = configuration["rootkey"].ToString();
 
 // Add services to the container.
@@ -34,7 +34,7 @@ builder.Services.AddControllers()
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 
-Dictionary<string,Object> result = new VaultConfiguration(configuration)
+IDictionary<string,Object> result = new VaultConfiguration(configuration)
     .GetSecrets(RootKey,Url).Result;
 SqlConnectionStringBuilder providerCs 
     = new SqlConnectionStringBuilder();
