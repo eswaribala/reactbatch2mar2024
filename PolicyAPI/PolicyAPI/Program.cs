@@ -12,6 +12,9 @@ using Steeltoe.Extensions.Configuration;
 using Newtonsoft.Json.Converters;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using PolicyAPI.Schemas;
+using GraphQL.Server;
+using GraphQL.Server.Ui.Playground;
 
 var builder = WebApplication.CreateBuilder(args);
 //step to add config server
@@ -97,6 +100,15 @@ builder.Services.AddCors(options =>
                       });
 });
 
+builder.Services.AddScoped<PolicySchema>();
+
+builder.Services.AddGraphQL()
+               .AddSystemTextJson()
+               .AddGraphTypes(typeof(PolicySchema), ServiceLifetime.Scoped);
+
+
+
+
 var app = builder.Build();
 var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
@@ -113,7 +125,8 @@ if (app.Environment.IsDevelopment())
         }
     });
 }
-
+app.UseGraphQL<PolicySchema>();
+app.UseGraphQLPlayground(options: new PlaygroundOptions());
 app.UseHttpsRedirection();
 app.UseCors(policyName);
 
