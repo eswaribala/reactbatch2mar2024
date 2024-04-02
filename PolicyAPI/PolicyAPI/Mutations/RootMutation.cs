@@ -20,6 +20,17 @@ namespace PolicyAPI.Mutations
                 resolve: async context =>  await vehicleRepo.AddVehicle(
                        context.GetArgument<Vehicle>("vehicleInput"))               
                 );
+
+
+            FieldAsync<BooleanGraphType>(
+                Name = "DeleteVehicle",
+                 arguments: new QueryArguments(new QueryArgument<StringGraphType>
+                 {
+                     Name = "registrationNo"
+                 }),
+                resolve: async context => await vehicleRepo.DeleteVehicle
+                (context.GetArgument<string>("registrationNo"))
+                );
         
         
         }
