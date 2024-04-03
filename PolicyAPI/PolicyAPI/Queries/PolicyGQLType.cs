@@ -15,7 +15,12 @@ namespace PolicyAPI.Queries
             Field(_ => _.InsuredAmount).Description("Insured Amount");
             Field(_ => _.RegistrationNo).Description("Registration No");
             Field(_ => _.AdharCardNo).Description("AdharCard No");
-
+            Field<StringGraphType>("policyholderfirstname",
+               resolve: context =>
+               context.Source.PolicyHolder.Name.FirstName);
+            Field<StringGraphType>("vehiclecolor",
+              resolve: context =>
+              context.Source.Vehicle.Color);
 
         }
     }

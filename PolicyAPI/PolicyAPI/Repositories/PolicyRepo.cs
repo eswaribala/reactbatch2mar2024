@@ -55,7 +55,10 @@ namespace PolicyAPI.Repositories
 
         public async Task<IEnumerable<Policy>> GetAllPolicies()
         {
-            return await this._dbContext.Policies.ToListAsync();
+            return await this._dbContext.Policies
+                .Include(p=>p.PolicyHolder)
+               .Include(p=>p.Vehicle)
+                .ToListAsync();
         }
 
         public Task<Policy> GetPolicyByPolicyNo(long PolicyNo)

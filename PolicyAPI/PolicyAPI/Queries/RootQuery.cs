@@ -15,6 +15,7 @@ namespace PolicyAPI.Queries
             IAddressRepo addressRepo
             ) {
 
+            
             //all vehicles
             Field<ListGraphType<VehicleGQLType>>(
             "vehicles",

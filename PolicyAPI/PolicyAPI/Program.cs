@@ -43,7 +43,9 @@ SqlConnectionStringBuilder providerCs
     = new SqlConnectionStringBuilder();
 providerCs.UserID = result["username"].ToString();
 providerCs.Password = result["password"].ToString();
+//providerCs.Password = "Vignesh@95";
 providerCs.DataSource = configuration["trainerservername"];
+//providerCs.DataSource = "host.docker.internal,1403";
 providerCs.InitialCatalog = "PolicyDbBatch2";
 providerCs.MultipleActiveResultSets = true;
 providerCs.TrustServerCertificate = true;
