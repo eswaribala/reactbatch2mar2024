@@ -13,7 +13,7 @@ services:
     hostname: 'sqlserverinstance'
     environment:  
       ACCEPT_EULA: 'Y' 
-      SA_PASSWORD: "India@2024"
+      SA_PASSWORD: "Vignesh@95"
     volumes:  
       - ./policyapi:/var/opt/mssql/data
     ports:  
