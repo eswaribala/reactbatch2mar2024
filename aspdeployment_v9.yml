@@ -42,5 +42,14 @@ spec:
 
             - name: SQLSERVER_CONNECTIONSTRING1
 
-              value: "Server=host.docker.internal,1403;Database=PolicyDbBatch2;User ID=sa;Password=Vignesh@95;MultipleActiveResultSets=true;TrustServerCertificate=true;"
-            
+              value: "Server=Server=host.docker.internal,1403;Database=PolicyDbBatch2;User ID=sa;Password=Vignesh@95;TrustServerCertificate=true;MultipleActiveResultSets=true"  
+        readinessProbe:
+          tcpSocket:
+               port: 80
+          initialDelaySeconds: 60
+          periodSeconds: 60
+        livenessProbe:
+          tcpSocket:
+               port: 80
+          initialDelaySeconds: 60
+          periodSeconds: 60
