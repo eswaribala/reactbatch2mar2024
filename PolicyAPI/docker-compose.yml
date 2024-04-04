@@ -6,9 +6,9 @@ services:
     build:
       context: .
       dockerfile: PolicyAPI/Dockerfile
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:8082 
+    # environment:
+    #   - ASPNETCORE_ENVIRONMENT=Development
+    #   - ASPNETCORE_URLS=http://+:8082 
     depends_on:
       - sqlserverinstance
   sqlserverinstance:
