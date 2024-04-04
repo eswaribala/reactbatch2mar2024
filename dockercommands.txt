@@ -1,4 +1,5 @@
 #push image from local to docker hub
 
+  0. docker login
   1. docker tag <imagename> <dockerhubusername>/<reponame>:imagename
   2. docker push   <dockerhubusername>/<reponame>:imagename
