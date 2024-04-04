@@ -9,28 +9,29 @@ spec:
   - port: 80
     name: http
   selector:
-    app: policyapi
+    app: policyapi2024
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: policyapi
+  name: policyapi2024
 spec:
   selector:
 
     matchLabels:
 
-      app: policyapi
+      app: policyapi2024
   replicas: 1
   template:
     metadata:
       labels:
-        app: policyapi
+        app: policyapi2024
         version: v1
     spec:
       containers:
-      - name: policyapi
-        image: eswaribala/novacmstrainingbatch2:policyapiv1        
+      - name: policyapi2024
+        image: eswaribala/novacmstrainingbatch2:policyapiv1
+        
         ports:
         - containerPort: 80
         env:
@@ -41,5 +42,5 @@ spec:
 
             - name: SQLSERVER_CONNECTIONSTRING1
 
-              value: "Server=Server=host.docker.internal,1403;Database=PolciyDbBatch2;User ID=sa;Password=Vignesh@95;TrustServerCertificate=true;MultipleActiveResultSets=true"
+              value: "Server=host.docker.internal,1403;Database=PolicyDbBatch2;User ID=sa;Password=Vignesh@95;MultipleActiveResultSets=true;TrustServerCertificate=true;"
             
