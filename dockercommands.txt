@@ -2,4 +2,6 @@
 
   0. docker login
   1. docker tag <imagename> <dockerhubusername>/<reponame>:imagename
+docker tag policyapi:dev eswaribala/novacmstrainingbatch2:policyapiv1
   2. docker push   <dockerhubusername>/<reponame>:imagename
+docker push eswaribala/novacmstrainingbatch2:policyapiv1
