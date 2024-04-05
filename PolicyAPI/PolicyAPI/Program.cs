@@ -17,6 +17,7 @@ using GraphQL.Server;
 using GraphQL.Server.Ui.Playground;
 
 var builder = WebApplication.CreateBuilder(args);
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 //step to add config server
 builder.Configuration.AddConfigServer();
 ConfigurationManager configuration = builder.Configuration;
@@ -37,13 +38,12 @@ builder.Services.AddControllers()
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 
-IDictionary<string,Object> result = new VaultConfiguration(configuration)
-    .GetSecrets(RootKey,Url).Result;
-SqlConnectionStringBuilder providerCs 
+IDictionary<string, Object> result = new VaultConfiguration(configuration)
+    .GetSecrets(RootKey, Url).Result;
+SqlConnectionStringBuilder providerCs
     = new SqlConnectionStringBuilder();
 providerCs.UserID = result["username"].ToString();
 providerCs.Password = result["password"].ToString();
-//providerCs.Password = "Vignesh@95";
 providerCs.DataSource = configuration["trainerservername"];
 //providerCs.DataSource = "host.docker.internal,1403";
 providerCs.InitialCatalog = "PolicyDbBatch2";
@@ -52,6 +52,8 @@ providerCs.TrustServerCertificate = true;
 
 builder.Services.AddDbContext<PolicyContext>(o =>
 o.UseSqlServer(providerCs.ToString()));
+builder.Services.AddDbContext<PolicyIdentityContext>(o =>
+o.UseSqlServer(configuration.GetConnectionString("PolicyIdentityConn")));
 
 builder.Services.AddTransient<IPolicyHolderRepo, PolicyHolderRepo>();
 
