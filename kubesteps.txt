@@ -1,6 +1,6 @@
 docker build -f PolicyAPI/Dockerfile -t policyapi2024 .
 
-docker tag policyapi2024:latest eswaribala/novacmstrainingbatch2/policyapi2024v1
+docker tag policyapi2024:latest eswaribala/novacmstrainingbatch2:policyapi2024v1
 
 docker push eswaribala/novacmstrainingbatch2/policyapi2024v1
 
