@@ -15,6 +15,7 @@ using System.Text.Json;
 using PolicyAPI.Schemas;
 using GraphQL.Server;
 using GraphQL.Server.Ui.Playground;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -64,6 +65,10 @@ builder.Services.AddTransient<IAddressRepo, AddressRepo>();
 builder.Services.AddTransient<IVehicleRepo, VehicleRepo>();
 
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<PolicyIdentityContext>()
+    .AddDefaultTokenProviders();
 
 
 

@@ -15,19 +15,18 @@ namespace PolicyAPI.Controllers
     public class AuthenticationController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
-        private ILogger<AuthenticationController> _logger;
+        private readonly RoleManager<IdentityRole> _roleManager;    
         private IConfiguration _configuration;
         
         public AuthenticationController(UserManager<IdentityUser> userManager,
             RoleManager<IdentityRole> roleManager, 
-            ILogger<AuthenticationController> logger,
+           
             IConfiguration configuration
             )
         {
             this._userManager = userManager;
             this._roleManager = roleManager;
-            this._logger = logger;
+          //  this._logger = logger;
             this._configuration = configuration;
 
         }
