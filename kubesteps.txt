@@ -10,3 +10,12 @@ kubectl apply -f sqlserverv1.yaml
 kubectl apply -f sqlserverservice.yaml
 
 kubectl apply -f aspdeployemnt_v10.yaml
+
+
+#to find the port no where application deployed
+kubectl logs <podname>
+
+#test application in localhost
+kubectl port-forward pod/<podname> newport:applicationport
+ex
+kubectl port-forward pod/policyapibatch2-6cb6d4cccb-sqdkj 7074:8080
