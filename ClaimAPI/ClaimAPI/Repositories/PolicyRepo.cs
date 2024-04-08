@@ -19,9 +19,9 @@ namespace ClaimAPI.Repositories
              _configuration["PoliciesCollectionName"]);
 
         }
-        public Task<Policy> AddPolicy(Policy policy)
+        public async void AddPolicy(Policy policy)
         {
-            throw new NotImplementedException();
+           await _MongoCollection.InsertOneAsync(policy);
         }
     }
 }

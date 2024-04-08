@@ -5,6 +5,6 @@ namespace ClaimAPI.Repositories
     public interface IPolicyRepo
     {
 
-        Task<Policy> AddPolicy(Policy policy);
+        void AddPolicy(Policy policy);
     }
 }
