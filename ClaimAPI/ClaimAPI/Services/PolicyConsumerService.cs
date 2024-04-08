@@ -1,6 +1,9 @@
 ﻿
+using ClaimAPI.Models;
 using ClaimAPI.Repositories;
 using Confluent.Kafka;
+
+using Newtonsoft.Json;
 
 namespace ClaimAPI.Services
 {
@@ -8,8 +11,8 @@ namespace ClaimAPI.Services
     {
         private IPolicyRepo _policyRepo;
         private IConfiguration _configuration;
-
-        public PolicyConsumerService(IPoicyRepo policyRepo,
+        private string response;
+        public PolicyConsumerService(IPolicyRepo policyRepo,
             IConfiguration configuration)
         {
             _configuration = configuration;
@@ -21,10 +24,10 @@ namespace ClaimAPI.Services
             var groupId = _configuration["GroupId"];
             var bootStrapServer = _configuration["BootstrapServer"];
             var topicName = _configuration["TopicName"];
-
+            return ConsumePolicyData(topicName, groupId, bootStrapServer);
         }
 
-        public Task<string> ConsumePolicyData(string TopicName, 
+        public async Task<string> ConsumePolicyData(string TopicName, 
             string Group_Id, string BootstarpServer)
         {
 
@@ -34,8 +37,45 @@ namespace ClaimAPI.Services
                 GroupId=Group_Id,
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
+            using (var c = new ConsumerBuilder<Ignore, string>(consumerConfig).Build())
+            {
+                c.Subscribe(TopicName);
 
-        }
+                CancellationTokenSource cts = new CancellationTokenSource();
+                Console.CancelKeyPress += (_, e) =>
+                {
+                    e.Cancel = true; // prevent the process from terminating.
+                    cts.Cancel();
+                };
+
+                try
+                {
+                    while (true)
+                    {
+                        try
+                        {
+                            var cr = c.Consume(cts.Token);
+                            Console.WriteLine($"Consumed message '{cr.Value}' at: '{cr.TopicPartitionOffset}'.");
+                             response = $"Consumed message '{cr.Value}' at: '{cr.TopicPartitionOffset}'.";
+                            var result = JsonConvert.DeserializeObject<List<Policy>>(cr.Value);
+                            foreach (var policy in result)
+                                _policyRepo.AddPolicy(policy);
+                        }
+                        catch (ConsumeException e)
+                        {
+                            Console.WriteLine($"Error occured: {e.Error.Reason}");
+                            response = $"Error occured: {e.Error.Reason}";
+                        }
+                    }
+                }
+                catch (OperationCanceledException)
+                {
+                    // Ensure the consumer leaves the group cleanly and final offsets are committed.
+                    c.Close();
+                }
+                return response;
+
+            }
 
 
     }

@@ -1,4 +1,5 @@
-﻿using Amazon.Auth.AccessControlPolicy;
+﻿
+using ClaimAPI.Models;
 using MongoDB.Driver;
 
 namespace ClaimAPI.Repositories

@@ -1,4 +1,6 @@
-﻿using Amazon.Auth.AccessControlPolicy;
+﻿
+
+using ClaimAPI.Models;
 
 namespace ClaimAPI.Repositories
 {
