@@ -73,6 +73,8 @@ builder.Services.AddTransient<IPolicyRepo, PolicyRepo>();
 builder.Services.AddTransient<IAddressRepo, AddressRepo>();
 
 builder.Services.AddTransient<IVehicleRepo, VehicleRepo>();
+builder.Services.AddTransient<IPolicyPublishRepo, PolicyPublishRepo>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 
