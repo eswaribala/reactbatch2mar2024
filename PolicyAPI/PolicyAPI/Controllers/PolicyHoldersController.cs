@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PolicyAPI.Auth;
 using PolicyAPI.Models;
 using PolicyAPI.Repositories;
 
@@ -24,6 +26,7 @@ namespace PolicyAPI.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles =Roles.Admin)]
         public async Task<IEnumerable<PolicyHolder>> Get()
         {
            return await this._policyHolderRepo.GetAllPolicyHolders();
