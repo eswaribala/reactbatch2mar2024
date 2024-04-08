@@ -26,7 +26,8 @@ namespace PolicyAPI.Controllers
 
 
         [HttpGet]
-        [Authorize(Roles =Roles.Admin)]
+        [Authorize(Roles= "Admin,User")]
+       
         public async Task<IEnumerable<PolicyHolder>> Get()
         {
            return await this._policyHolderRepo.GetAllPolicyHolders();
