@@ -150,13 +150,14 @@ console.log(args[2]);
 
 const host=config.get('server.host');
 //const port=config.get('server.port');
-var port=args[2].toString();
-//var port=3005
+//var port=args[2].toString();
+var port=3005
 //external configuration
 
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCss}));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile, {customCss}));
 //====================================eureka configuration================================
+/*
 
 const Eureka = require('eureka-js-client').Eureka;
 
@@ -226,6 +227,7 @@ async function run() {
         }
     });
 }
+*/
 
 
  //========================================Server config=================================

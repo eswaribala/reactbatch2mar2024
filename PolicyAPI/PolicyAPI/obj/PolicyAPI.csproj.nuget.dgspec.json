@@ -144,6 +144,18 @@
             "VaultSharp": {
               "target": "Package",
               "version": "[1.13.0.1, )"
+            },
+            "prometheus-net": {
+              "target": "Package",
+              "version": "[8.2.1, )"
+            },
+            "prometheus-net.AspNetCore": {
+              "target": "Package",
+              "version": "[8.2.1, )"
+            },
+            "prometheus-net.SystemMetrics": {
+              "target": "Package",
+              "version": "[3.1.0, )"
             }
           },
           "imports": [

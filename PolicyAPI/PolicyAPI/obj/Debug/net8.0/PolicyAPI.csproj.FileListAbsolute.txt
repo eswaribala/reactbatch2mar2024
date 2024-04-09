@@ -32,7 +32,6 @@ F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microso
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -44,13 +43,10 @@ F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Composition.Runtime.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Composition.TypedParts.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Drawing.Common.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Memory.Data.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Runtime.Caching.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Security.Permissions.dll
-F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Windows.Extensions.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\VaultSharp.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
@@ -274,10 +270,6 @@ F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\ru\Micr
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
-F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
-F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\GraphQL.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\GraphQL-Parser.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\GraphQL.DataLoader.dll
@@ -325,3 +317,8 @@ F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\runtime
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\runtimes\win-x86\native\vcruntime140.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\runtimes\win-x86\native\zlib1.dll
 F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\runtimes\win-x86\native\zstd.dll
+F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Prometheus.NetStandard.dll
+F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Prometheus.AspNetCore.dll
+F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Prometheus.SystemMetrics.dll
+F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Diagnostics.PerformanceCounter.dll
+F:\Local disk\NovacMSTrainingBatch2\PolicyAPI\PolicyAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.PerformanceCounter.dll

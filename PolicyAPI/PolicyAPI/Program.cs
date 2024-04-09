@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using VaultSharp.V1.Commons;
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -198,7 +199,8 @@ app.UseHttpsRedirection();
 app.UseCors(policyName);
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseMetricServer();
+app.UseHttpMetrics();
 app.MapControllers();
 
 app.Run();
